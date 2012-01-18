@@ -15,6 +15,12 @@ group :development do
   gem 'sqlite3'
 end
 
+group :test do
+  gem 'spork', '~> 0.9.0.rc'
+end
+
 group :production do
   gem 'pg'
 end
+
+gem "rspec-rails", :group => [ :development, :test ]
