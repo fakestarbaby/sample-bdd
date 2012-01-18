@@ -3,6 +3,7 @@
 guard 'spork' do
   watch('config/application.rb')
   watch('config/environment.rb')
+  watch('config/routes.rb')
   watch(%r{^config/environments/.+\.rb$})
   watch(%r{^config/initializers/.+\.rb$})
   watch('Gemfile')
@@ -12,7 +13,7 @@ guard 'spork' do
   watch(%r{features/support/}) { :cucumber }
 end
 
-guard 'rspec', :version => 2, :cli => '--drb' do
+guard 'rspec', :version => 2, :cli => '--format nested --drb' do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$}) { |m| "spec/lib/#{m[1]}_spec.rb" }
   watch('spec/spec_helper.rb') { "spec" }
